@@ -93,17 +93,21 @@
 	<div>NOTE: discounts of 10% are given to orders over $250</div>
 
 	<script>
-	// Name: 				Paul Aries
-	// Student ID: 			A01361366
-	// Assignment Name: 	Assignment 1
+	/* 	Name: 				Paul Aries
+		Student ID: 		A01361366
+		Assignment Name: 	Assignment 1 */
 
 		// stores button to a variable so it can be used in an eventListener later
 		const calc_btn = document.querySelector("#calculate");
+
+		// stores discount amount (10%) so it can be applied later
 		const discount = .10
+
+		// stores tax amount (12%) so it can be added to the total later
 		const tax = .12
 
 		// creates a new set of instructions (function)
-		// this function is named "calculate"
+		// this function is named "calculate" and it will run the following set of instructions when button is clicked
 	    function calculate() {
 
 			// creates a variable to store the value or total of each line
