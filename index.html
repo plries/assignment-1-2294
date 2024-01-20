@@ -93,17 +93,22 @@
 	<div>NOTE: discounts of 10% are given to orders over $250</div>
 
 	<script>
-	// Name: 				Paul Aries
-	// Student ID: 			A01361366
-	// Assignment Name: 	Assignment 1
+	/* 	Name: 				Paul Aries
+		Student ID: 		A01361366
+		Assignment Name: 	Assignment 1 */
+
 
 		// stores button to a variable so it can be used in an eventListener later
 		const calc_btn = document.querySelector("#calculate");
+
+		// stores discount amount (10%) so it can be applied later
 		const discount = .10
+
+		// stores tax amount (12%) so it can be added to the total late
 		const tax = .12
 
 		// creates a new set of instructions (function)
-		// this function is named "calculate"
+		// this function is named "calculate" and it will run the following set of instructions when button is clicked
 	    function calculate() {
 
 			// creates a variable to store the value or total of each line
@@ -191,16 +196,34 @@
 			// DISCOUNT
 			// -----------
 
-				line_total = total_sum > 250 ? total_sum * discount : document.querySelector("#discount").innerHTML = "$0.00";
-				// applies discount of 10% (declared as a global constant variable) if total_sum is greater than 250
+				// creates a new set of instructions (function)
+				// this function is named "applyDiscount" and it will run the following set of instructions when mentioned in the ternary operator
+				const applyDiscount = function() {
 
-					// displays the amount of money being discounted/subtracted from the running total
-					// adds a $ in front of calculated price
-					// adds fixed decimal point (to nearest hundredth) to discounted price
-					document.querySelector("#discount").innerHTML = "$" + line_total.toFixed(2);
+				// multiples total_sum by the discount so that it can be displayed in the line total
+				line_total = total_sum * discount;
 
-					// takes the running total and subtracts the discounted amount
-					total_sum = total_sum - line_total;
+				// displays the amount of money being discounted/subtracted from the running total
+				// adds a $ in front of calculated price
+				// adds fixed decimal point (to nearest hundredth) to discounted price
+				document.querySelector("#discount").innerHTML = "$" + line_total.toFixed(2);
+
+				// takes the running total and subtracts the discounted amount
+				total_sum = total_sum - line_total;
+
+				};	
+
+				// this is a ternary operator
+				// it will run either side of the : depending on if the running total is greater or less than 250
+				total_sum > 250
+
+				// only runs if the running total is over 250
+				// runs the applyDiscount function stated previously
+				? applyDiscount()
+
+				// only runs if running total is equal to 250 or less
+				// displays 0 dollars in the discount section because there is no discounted being applied
+				: document.querySelector("#discount").innerHTML = "$0.00";
 
 			// TAX
 			// -----------
