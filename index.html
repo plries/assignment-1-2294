@@ -195,11 +195,8 @@
 			// DISCOUNT
 			// -----------
 
-				if(total_sum > 250) {
+				line_total = total_sum > 250 ? total_sum * discount : document.querySelector("#discount").innerHTML = "$0.00";
 				// applies discount of 10% (declared as a global constant variable) if total_sum is greater than 250
-
-					// multiples total_sum by the discount so that it can be displayed in the line total
-					line_total = total_sum * discount;
 
 					// displays the amount of money being discounted/subtracted from the running total
 					// adds a $ in front of calculated price
@@ -208,14 +205,6 @@
 
 					// takes the running total and subtracts the discounted amount
 					total_sum = total_sum - line_total;
-				
-				} else {
-				// if total_sum is equal to or less than 250, then no discount is applied
-				
-					// displays nothing/erases amount displayed
-					document.querySelector("#discount").innerHTML = "";
-
-				}
 
 			// TAX
 			// -----------
